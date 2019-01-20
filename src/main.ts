@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 
 import { router } from "./routes/main";
 
+const { PORT } = process.env;
+
 export class Server {
   public app: express.Express;
 
@@ -16,7 +18,7 @@ export class Server {
   }
 
   private init(): void {
-    this.app.listen(3000, this.listen);
+    this.app.listen(PORT || 3000, this.listen);
   }
 
   private listen(err: any): void {
